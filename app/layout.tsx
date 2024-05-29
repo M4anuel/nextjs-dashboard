@@ -1,6 +1,7 @@
 import '@/app/ui/global.css';
 import { inter, lusitana } from '@/app/ui/fonts';
 import { Metadata } from 'next';
+import { SessionProvider, useSession } from "next-auth/react";
  
 export const metadata: Metadata = {
   title: {
@@ -17,7 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+    <SessionProvider>
       <body className={`${lusitana.className} antialiased`}>{children}</body>
+    </SessionProvider>
     </html>
   );
 }
